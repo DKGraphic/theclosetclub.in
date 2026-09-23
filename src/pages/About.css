@@ -1,0 +1,12 @@
+.about-hero { position: relative; height: 60vh; min-height: 380px; overflow: hidden; color: var(--white); display: flex; align-items: flex-end; }
+.about-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.about-hero__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,13,13,0.2), rgba(13,13,13,0.65)); }
+.about-hero__content { position: relative; z-index: 2; padding: 0 var(--container-pad) 3rem; }
+.about-hero__content h1 {
+  font-family: var(--font-serif); font-weight: 500; text-transform: uppercase;
+  font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; margin-top: 0.6rem;
+}
+
+.about-body__text { max-width: 680px; margin: 0 auto; text-align: center; }
+.about-body__lead { font-size: 1.5rem; margin-bottom: 1.5rem; }
+.about-body__text p:not(.about-body__lead) { color: #55524c; margin-bottom: 1.1rem; line-height: 1.8; }

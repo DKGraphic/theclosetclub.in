@@ -1,0 +1,43 @@
+.cat-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #ece8e1;
+}
+.cat-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1s var(--ease);
+}
+.cat-card:hover img { transform: scale(1.08); }
+
+.cat-card__scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(13,13,13,0) 45%, rgba(13,13,13,0.6) 100%);
+  transition: background 0.4s var(--ease);
+}
+.cat-card:hover .cat-card__scrim { background: linear-gradient(180deg, rgba(95,59,141,0.1) 40%, rgba(13,13,13,0.72) 100%); }
+
+.cat-card__badge {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: var(--brand-purple);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+}
+
+.cat-card__title {
+  position: absolute;
+  left: 1.25rem; bottom: 1.25rem;
+  color: var(--white);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: transform 0.4s var(--ease);
+}
+.cat-card:hover .cat-card__title { transform: translateY(-6px); }

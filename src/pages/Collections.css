@@ -1,0 +1,31 @@
+.collections-page__head { padding-bottom: 0; }
+.collections-page__desc { color: var(--grey); max-width: 480px; margin-top: 0.75rem; }
+
+.collections-list { padding-bottom: clamp(3rem, 8vw, 6rem); }
+
+.collection-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 3rem) var(--container-pad);
+}
+
+.collection-row__image { aspect-ratio: 16/10; overflow: hidden; }
+.collection-row__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
+.collection-row:hover .collection-row__image img { transform: scale(1.04); }
+
+.collection-row__copy h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+.collection-row__copy p { color: var(--grey); margin-bottom: 1.5rem; max-width: 380px; }
+
+@media (min-width: 992px) {
+  .collection-row { grid-template-columns: 1.3fr 1fr; gap: 4rem; }
+  .collection-row--reverse { direction: rtl; }
+  .collection-row--reverse > * { direction: ltr; }
+}

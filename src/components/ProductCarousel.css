@@ -1,0 +1,37 @@
+.carousel { position: relative; }
+
+.carousel__track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+}
+
+.carousel__item {
+  scroll-snap-align: start;
+  flex: 0 0 48%;
+}
+
+@media (min-width: 576px) {
+  .carousel__item { flex-basis: 34%; }
+}
+@media (min-width: 992px) {
+  .carousel__track { gap: 1.75rem; }
+  .carousel__item { flex-basis: calc(25% - 1.32rem); }
+}
+
+.carousel__nav {
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.carousel__nav button {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s var(--ease);
+}
+.carousel__nav button:hover { background: var(--black); color: var(--white); border-color: var(--black); }

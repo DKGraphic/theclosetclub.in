@@ -1,0 +1,5 @@
+.static-page__body { max-width: 700px; color: #45433f; font-size: 0.95rem; line-height: 1.8; }
+.static-page__body h3 { font-family: var(--font-serif); font-weight: 500; font-size: 1.3rem; margin: 2rem 0 0.75rem; color: var(--black); }
+.static-page__body p { margin-bottom: 1rem; }
+.static-page__body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+.static-page__body li { margin-bottom: 0.5rem; }

@@ -1,0 +1,25 @@
+.marquee-wrap {
+  background: var(--black);
+  color: var(--off-white);
+  overflow: hidden;
+  padding: 1.5rem 0;
+  border-top: 1px solid #232323;
+  border-bottom: 1px solid #232323;
+}
+
+.marquee-item {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 500;
+  padding: 0 1.5rem;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.marquee-star {
+  color: var(--brand-purple-light);
+  font-style: normal;
+  font-size: 0.6em;
+}

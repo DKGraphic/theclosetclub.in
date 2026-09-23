@@ -1,0 +1,17 @@
+.contact-page__layout { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+@media (min-width: 992px) { .contact-page__layout { grid-template-columns: 1fr 1.3fr; } }
+
+.contact-page__block { margin-bottom: 2rem; }
+.contact-page__block h4 { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.5rem; }
+.contact-page__block a { font-family: var(--font-serif); font-size: 1.4rem; }
+.contact-page__socials { display: flex; gap: 0.75rem; }
+
+.contact-page__form { display: flex; flex-direction: column; gap: 1.25rem; }
+.contact-page__form label { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--grey); }
+.contact-page__form input, .contact-page__form textarea {
+  border: 1px solid var(--border); background: var(--white); padding: 0.8rem 1rem;
+  font-size: 0.92rem; font-weight: 500; text-transform: none; letter-spacing: normal; resize: vertical;
+}
+.contact-page__form input:focus, .contact-page__form textarea:focus { outline: none; border-color: var(--brand-purple); }
+.contact-page__form button { align-self: flex-start; }
+.contact-page__success { font-family: var(--font-serif); font-size: 1.3rem; }

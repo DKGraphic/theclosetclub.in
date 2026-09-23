@@ -1,0 +1,98 @@
+.tcc-nav {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: transparent;
+  transition: background 0.4s var(--ease), backdrop-filter 0.4s var(--ease), border-color 0.4s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+.tcc-nav--scrolled {
+  background: rgba(247, 245, 241, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.tcc-nav__inner {
+  height: var(--nav-height);
+  padding: 0 var(--container-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.tcc-nav__logo { display: flex; align-items: center; flex-shrink: 0; }
+.tcc-nav__logo img { height: 46px; width: auto; }
+
+.tcc-nav__links {
+  gap: 2.4rem;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.tcc-nav__link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0.4rem 0;
+  color: var(--black);
+}
+.tcc-nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 1px; width: 100%;
+  background: var(--brand-purple);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s var(--ease);
+}
+.tcc-nav__link:hover::after,
+.tcc-nav__link.active::after { transform: scaleX(1); transform-origin: left; }
+
+.tcc-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.tcc-icon-btn {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--black);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s var(--ease);
+}
+.tcc-icon-btn:hover { color: var(--brand-purple); }
+.tcc-icon-btn--whatsapp:hover { color: #25963f; }
+
+.tcc-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: var(--brand-purple);
+  color: var(--white);
+  font-size: 0.6rem;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+@media (max-width: 767px) {
+  .tcc-nav__logo img { height: 36px; }
+}

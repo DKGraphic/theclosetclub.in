@@ -1,0 +1,12 @@
+.announcement-bar {
+  background: var(--black);
+  color: var(--off-white);
+  text-align: center;
+  padding: 0.55rem 1rem;
+}
+.announcement-bar p {
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
