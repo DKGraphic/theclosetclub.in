@@ -36,7 +36,7 @@ export const STOCK = {
   // Large full-bleed marketing imagery — the real Instagram photos are only
   // 512x640 (story/reel cover res) and go soft when stretched across a full
   // viewport, so these two banners use high-res stock instead.
-  heroModel: build('1708534419572-6e6614a53ca1', 1600, 2000),
+  heroModel: build('1708534419572-6e6614a53ca1', 2200, 2750),
   campaignModel: build('1760287363699-a08d553fb8a9', 2000, 1200),
 };
 

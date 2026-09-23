@@ -25,7 +25,7 @@ export default function Hero() {
           src={IMG.heroMain}
           alt="The Closet Club latest drop"
           onLoad={() => setLoaded(true)}
-          style={{ transform: `translateY(${offset}px) scale(1.55)` }}
+          style={{ transform: `translateY(${offset}px) scale(1.32)` }}
           className={loaded ? 'is-loaded' : ''}
         />
         <div className="hero__scrim" />
