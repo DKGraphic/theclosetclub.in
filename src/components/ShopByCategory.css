@@ -9,4 +9,8 @@
 @media (min-width: 1200px) {
   .cat-grid { grid-template-columns: repeat(6, 1fr); }
   .cat-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .cat-grid--7 { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1440px) {
+  .cat-grid--7 { grid-template-columns: repeat(7, 1fr); }
 }

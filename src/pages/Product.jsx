@@ -86,14 +86,7 @@ export default function Product() {
 
           <div className="product-page__price">
             <span>₹{product.price.toLocaleString('en-IN')}</span>
-            {product.comparePrice && <s>₹{product.comparePrice.toLocaleString('en-IN')}</s>}
           </div>
-
-          {product.comingSoon && (
-            <div className="product-page__soon-banner">
-              Skirts have just launched and stock is limited — message us on WhatsApp to check availability.
-            </div>
-          )}
 
           <div className="product-page__option">
             <span className="product-page__option-label">Color — {color}</span>

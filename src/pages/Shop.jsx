@@ -2,8 +2,9 @@ import { useMemo, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ProductGrid from '../components/ProductGrid';
 import Reveal from '../components/Reveal';
-import { CloseIcon, ChevronRight } from '../components/Icons';
+import { CloseIcon, ChevronRight, WhatsappIcon } from '../components/Icons';
 import { products, categories } from '../data/products';
+import { generalWhatsappLink } from '../data/whatsapp';
 import './Shop.css';
 
 const SIZES = ['S', 'M', 'L', 'XL', 'XXL', 'Free Size'];
@@ -27,42 +28,32 @@ function FilterGroup({ title, children }) {
 export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [category, setCategory] = useState(searchParams.get('category') || '');
-  const [subCategory, setSubCategory] = useState(searchParams.get('sub') || '');
   const [sizes, setSizes] = useState([]);
   const [colors, setColors] = useState([]);
-  const [maxPrice, setMaxPrice] = useState(2600);
+  const [maxPrice, setMaxPrice] = useState(1399);
   const [sort, setSort] = useState('featured');
   const [sheetOpen, setSheetOpen] = useState(false);
   const filterParam = searchParams.get('filter');
 
   useEffect(() => {
     setCategory(searchParams.get('category') || '');
-    setSubCategory(searchParams.get('sub') || '');
   }, [searchParams]);
-
-  const activeCategory = categories.find((c) => c.name === category);
 
   const toggle = (list, setList, value) =>
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
 
   const selectCategory = (name) => {
     setCategory(name);
-    setSubCategory('');
     setSearchParams(name ? { category: name } : {});
   };
 
-  const selectSubCategory = (sub) => {
-    const next = subCategory === sub ? '' : sub;
-    setSubCategory(next);
-    setSearchParams(next ? { category, sub: next } : { category });
-  };
+  const categoryHasProducts = (name) => products.some((p) => p.category === name);
 
   const filtered = useMemo(() => {
     let result = [...products];
     if (filterParam === 'new') result = result.filter((p) => p.newArrival);
     if (filterParam === 'bestsellers') result = result.filter((p) => p.bestSeller);
     if (category) result = result.filter((p) => p.category === category);
-    if (subCategory) result = result.filter((p) => p.subCategory === subCategory);
     if (sizes.length) result = result.filter((p) => p.sizes.some((s) => sizes.includes(s)));
     if (colors.length) result = result.filter((p) => p.colors.some(([name]) => colors.includes(name)));
     result = result.filter((p) => p.price <= maxPrice);
@@ -72,36 +63,23 @@ export default function Shop() {
     if (sort === 'newest') result.sort((a, b) => (b.newArrival ? 1 : 0) - (a.newArrival ? 1 : 0));
 
     return result;
-  }, [category, subCategory, sizes, colors, maxPrice, sort, filterParam]);
+  }, [category, sizes, colors, maxPrice, sort, filterParam]);
 
   const heading = filterParam === 'new' ? 'New In' : filterParam === 'bestsellers' ? 'Bestsellers' : category || 'Shop All';
+  const categoryIsEmpty = Boolean(category) && !categoryHasProducts(category);
 
   const filtersUI = (
     <>
       <FilterGroup title="Category">
         <button className={`filter-pill ${!category ? 'is-active' : ''}`} onClick={() => selectCategory('')}>All</button>
         {categories.map((c) => (
-          <div key={c.name}>
-            <button
-              className={`filter-pill ${category === c.name ? 'is-active' : ''}`}
-              onClick={() => selectCategory(c.name)}
-            >
-              {c.name} {c.comingSoon && <span className="filter-pill__tag">Soon</span>}
-            </button>
-            {category === c.name && c.subCategories.length > 0 && (
-              <div className="filter-sub">
-                {c.subCategories.map((sub) => (
-                  <button
-                    key={sub}
-                    className={`filter-pill filter-pill--sub ${subCategory === sub ? 'is-active' : ''}`}
-                    onClick={() => selectSubCategory(sub)}
-                  >
-                    {sub}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          <button
+            key={c.name}
+            className={`filter-pill ${category === c.name ? 'is-active' : ''}`}
+            onClick={() => selectCategory(c.name)}
+          >
+            {c.name} {!categoryHasProducts(c.name) && <span className="filter-pill__tag">Soon</span>}
+          </button>
         ))}
       </FilterGroup>
 
@@ -129,9 +107,9 @@ export default function Shop() {
       <FilterGroup title="Price">
         <input
           type="range"
-          min="899"
-          max="2600"
-          step="100"
+          min="349"
+          max="1399"
+          step="50"
           value={maxPrice}
           onChange={(e) => setMaxPrice(Number(e.target.value))}
           className="price-range"
@@ -149,12 +127,6 @@ export default function Shop() {
         <p className="shop-page__desc">Considered fits, honest fabrics — pieces made to be worn, not just owned.</p>
       </Reveal>
 
-      {activeCategory?.comingSoon && (
-        <div className="shop-page__soon-banner">
-          {activeCategory.name} have just launched and stock is limited — tap &ldquo;Enquire&rdquo; on any piece to check availability on WhatsApp.
-        </div>
-      )}
-
       <div className="shop-page__toolbar">
         <button className="shop-page__filter-btn d-lg-none" onClick={() => setSheetOpen(true)}>
           Filters
@@ -171,7 +143,14 @@ export default function Shop() {
         </aside>
 
         <div className="shop-page__grid">
-          {filtered.length > 0 ? (
+          {categoryIsEmpty ? (
+            <div className="shop-page__empty-category">
+              <p>{category} is landing soon — real photos are on the way.</p>
+              <a href={generalWhatsappLink()} target="_blank" rel="noreferrer" className="btn-tcc">
+                <WhatsappIcon width={15} height={15} /> Ask Us On WhatsApp
+              </a>
+            </div>
+          ) : filtered.length > 0 ? (
             <ProductGrid products={filtered} columns={3} />
           ) : (
             <p className="shop-page__empty">No products match these filters.</p>

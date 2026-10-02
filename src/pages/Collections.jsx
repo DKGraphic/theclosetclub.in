@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
 import { ArrowRight } from '../components/Icons';
-import { IMG } from '../data/images';
+import { STOCK } from '../data/images';
 import './Collections.css';
 
 const COLLECTIONS = [
-  { title: 'Short Kurtis', desc: 'Everyday sleeveless and full-sleeve kurtis, cut for comfort.', image: IMG.categoryShortKurtis, to: `/shop?category=${encodeURIComponent('Short Kurtis')}` },
-  { title: 'Long Kurtis', desc: 'Side-open, umbrella-flare and ready-made co-ord sets.', image: IMG.categoryLongKurtis, to: `/shop?category=${encodeURIComponent('Long Kurtis')}` },
-  { title: 'Skirts — Coming Soon', desc: 'Flowy printed skirts, newly launched. Order via WhatsApp for now.', image: IMG.categorySkirts, to: '/shop?category=Skirts' },
+  { title: 'Short Kurtis', desc: 'Sleeveless and full-sleeve everyday kurtis, cut for comfort.', image: STOCK.categoryShortKurti, to: `/shop?category=${encodeURIComponent('Short Kurti')}` },
+  { title: 'Skirts', desc: 'Flowy, hand block-printed skirts — our newest edit.', image: STOCK.categorySkirts, to: '/shop?category=Skirts' },
+  { title: 'Festive Sets — Coming Soon', desc: 'Co-ord sets and 3 piece festive sets, landing soon.', image: STOCK.category3PieceSet, to: `/shop?category=${encodeURIComponent('3 Piece Set')}` },
 ];
 
 export default function Collections() {

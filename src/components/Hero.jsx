@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from './Icons';
-import { IMG } from '../data/images';
+import { STOCK } from '../data/images';
 import './Hero.css';
 
 export default function Hero() {
@@ -22,10 +22,10 @@ export default function Hero() {
     <section className="hero" ref={heroRef}>
       <div className="hero__media">
         <img
-          src={IMG.heroMain}
+          src={STOCK.hero}
           alt="The Closet Club latest drop"
           onLoad={() => setLoaded(true)}
-          style={{ transform: `translateY(${offset}px) scale(1.32)` }}
+          style={{ transform: `translateY(${offset}px) scale(1.08)` }}
           className={loaded ? 'is-loaded' : ''}
         />
         <div className="hero__scrim" />

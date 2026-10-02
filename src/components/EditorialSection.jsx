@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import { ArrowRight } from './Icons';
-import { IMG } from '../data/images';
+import { STOCK } from '../data/images';
 import './EditorialSection.css';
 
 export default function EditorialSection() {
@@ -9,7 +9,7 @@ export default function EditorialSection() {
     <section className="section editorial">
       <div className="container-fluid-tcc editorial__grid">
         <Reveal className="editorial__image editorial__image--main">
-          <img src={IMG.editorialLeft} alt="The Everyday Edit collection" loading="lazy" />
+          <img src={STOCK.editorialMain} alt="The Everyday Edit collection" loading="lazy" />
         </Reveal>
 
         <div className="editorial__copy">
@@ -27,10 +27,10 @@ export default function EditorialSection() {
 
           <div className="editorial__thumbs">
             <Reveal delay={200} className="editorial__thumb">
-              <img src={IMG.editorialRight1} alt="" loading="lazy" />
+              <img src={STOCK.editorialThumb1} alt="" loading="lazy" />
             </Reveal>
             <Reveal delay={300} className="editorial__thumb">
-              <img src={IMG.editorialRight2} alt="" loading="lazy" />
+              <img src={STOCK.editorialThumb2} alt="" loading="lazy" />
             </Reveal>
           </div>
         </div>

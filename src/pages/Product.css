@@ -52,16 +52,6 @@
 }
 .product-page__price s { font-size: 1rem; color: var(--grey); font-weight: 500; }
 
-.product-page__soon-banner {
-  background: #f4eef9;
-  border: 1px solid #dccbec;
-  color: #452a68;
-  font-size: 0.82rem;
-  line-height: 1.6;
-  padding: 0.85rem 1rem;
-  margin-bottom: 1.75rem;
-}
-
 .product-page__whatsapp-btn {
   background: #25963f;
   border-color: #25963f;

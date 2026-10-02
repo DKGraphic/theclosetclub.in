@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
-import { IMG } from '../data/images';
+import { STOCK } from '../data/images';
 import './CampaignBanner.css';
 
 export default function CampaignBanner() {
   return (
     <section className="campaign">
-      <img src={IMG.campaign} alt="Wear your own story campaign" loading="lazy" className="campaign__img" />
+      <img src={STOCK.campaign} alt="Wear your own story campaign" loading="lazy" className="campaign__img" />
       <div className="campaign__scrim" />
       <div className="campaign__content">
         <Reveal>

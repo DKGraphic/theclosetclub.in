@@ -32,6 +32,18 @@
 
 .shop-page__empty { padding: 4rem 0; text-align: center; color: var(--grey); }
 
+.shop-page__empty-category {
+  padding: 5rem 1rem;
+  text-align: center;
+  color: var(--grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.shop-page__empty-category p { font-size: 1rem; max-width: 360px; }
+.shop-page__empty-category .btn-tcc { display: inline-flex; align-items: center; gap: 0.5rem; }
+
 .filter-group { margin-bottom: 2.25rem; }
 .filter-group h4 {
   font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
@@ -56,24 +68,6 @@
   padding: 1px 6px;
   border-radius: 3px;
   margin-left: 0.35rem;
-}
-.filter-sub {
-  display: flex;
-  flex-direction: column;
-  padding-left: 1rem;
-  border-left: 1px solid var(--border);
-  margin: 0.1rem 0 0.5rem;
-}
-.filter-pill--sub { font-size: 0.8rem; padding: 0.3rem 0; }
-
-.shop-page__soon-banner {
-  background: #f4eef9;
-  border: 1px solid #dccbec;
-  color: #452a68;
-  font-size: 0.85rem;
-  padding: 0.85rem 1.1rem;
-  margin-bottom: 1.5rem;
-  max-width: 720px;
 }
 
 .filter-swatches { display: flex; flex-wrap: wrap; gap: 0.5rem; }

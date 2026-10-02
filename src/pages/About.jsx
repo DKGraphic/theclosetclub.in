@@ -1,12 +1,12 @@
 import Reveal from '../components/Reveal';
-import { IMG } from '../data/images';
+import { STOCK } from '../data/images';
 import './About.css';
 
 export default function About() {
   return (
     <div className="about-page">
       <section className="about-hero">
-        <img src={IMG.editorialLeft} alt="The Closet Club" />
+        <img src={STOCK.editorialMain} alt="The Closet Club" />
         <div className="about-hero__scrim" />
         <div className="about-hero__content">
           <Reveal>

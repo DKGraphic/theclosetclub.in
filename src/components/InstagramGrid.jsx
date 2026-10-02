@@ -1,6 +1,6 @@
 import Reveal from './Reveal';
 import { InstagramIcon } from './Icons';
-import { IMG } from '../data/images';
+import { INSTAGRAM_FEED } from '../data/images';
 import './InstagramGrid.css';
 
 export default function InstagramGrid() {
@@ -12,7 +12,7 @@ export default function InstagramGrid() {
       </Reveal>
 
       <div className="insta-grid">
-        {IMG.instagram.map((src, i) => (
+        {INSTAGRAM_FEED.map((src, i) => (
           <Reveal key={src} delay={i * 60}>
             <a
               href="https://www.instagram.com/theclosetclub.in"
