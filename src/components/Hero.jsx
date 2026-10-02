@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from './Icons';
 import { STOCK } from '../data/images';
@@ -7,33 +7,18 @@ import './Hero.css';
 export default function Hero() {
   const [offset, setOffset] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const heroRef = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      setOffset(y * 0.28);
-    };
+    const onScroll = () => setOffset(window.scrollY * 0.15);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <section className="hero" ref={heroRef}>
-      <div className="hero__media">
-        <img
-          src={STOCK.hero}
-          alt="The Closet Club latest drop"
-          onLoad={() => setLoaded(true)}
-          style={{ transform: `translateY(${offset}px) scale(1.08)` }}
-          className={loaded ? 'is-loaded' : ''}
-        />
-        <div className="hero__scrim" />
-      </div>
-
+    <section className="hero">
       <div className="hero__content">
         <div className={`hero__reveal ${loaded ? 'hero__reveal--in' : ''}`}>
-          <span className="eyebrow" style={{ color: 'var(--off-white)' }}>The Latest Drop</span>
+          <span className="eyebrow">The Latest Drop</span>
         </div>
         <h1 className="hero__headline">
           <span className={`hero__line ${loaded ? 'hero__line--in' : ''}`} style={{ transitionDelay: '80ms' }}>Dress</span>
@@ -43,7 +28,7 @@ export default function Hero() {
         <div className={`hero__reveal ${loaded ? 'hero__reveal--in' : ''}`} style={{ transitionDelay: '380ms' }}>
           <p className="hero__sub">Contemporary pieces designed for your everyday statement.</p>
           <div className="hero__cta">
-            <Link to="/shop?filter=new" className="btn-tcc-light">
+            <Link to="/shop?filter=new" className="btn-tcc">
               Shop New In <ArrowRight width={16} height={16} />
             </Link>
             <Link to="/collections" className="link-underline hero__secondary">
@@ -53,8 +38,14 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hero__scroll-hint">
-        <span />
+      <div className="hero__media">
+        <img
+          src={STOCK.hero}
+          alt="The Closet Club latest drop"
+          onLoad={() => setLoaded(true)}
+          style={{ transform: `translateY(${offset}px) scale(1.06)` }}
+          className={loaded ? 'is-loaded' : ''}
+        />
       </div>
     </section>
   );
